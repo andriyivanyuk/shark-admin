@@ -1,0 +1,25 @@
+1. Install docker locally.
+2. Create a docker file and put a script in there
+# Use the official PostgreSQL image from the Docker Hub
+FROM postgres:latest
+
+# Set environment variables
+ENV POSTGRES_DB=users
+ENV POSTGRES_USER=andrii
+ENV POSTGRES_PASSWORD=root
+
+# Expose the PostgreSQL port
+EXPOSE 5432
+
+# Set the default command for the container, which is to run PostgreSQL
+CMD ["postgres"]
+3. Build the docker image
+docker build -t mypostgres .
+4. Run the docker container
+docker run --name mypostgrescontainer -p 5432:5432 -d mypostgres
+5. Create a connection using pg-admin.
+localhost
+5432
+username
+password
+
